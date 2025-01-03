@@ -4,9 +4,11 @@ const defaultRouter = require('../Routes/defaultRoute')
 const userRouter = require("../Routes/userRoute")
 const postRouter = require("../Routes/postRoute")
 const categoryRouter = require("../Routes/categoryRoute")
+const path = require("path")
 const cors = require("cors")
-const multer = require("multer")
+
 connectDB()
+
 const app = express()
 
 
@@ -19,21 +21,10 @@ app.use(cors({
   
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 
-const storage = multer.diskStorage({
-    destination : (req, file, cb)=>{
-        cb(null, "images")
-    },
-    filename : (req, file, cb) => {
-        cb(null, "image.jpeg")
-    }
-})
-
-const upload = multer({storage:storage})
-app.post("/publish/upload", upload.single("file"),(req, res) => {
-    res.status(200).json("file has been uploaded")
-})
 
 app.use("/api/", defaultRouter)
 app.use("/api/user", userRouter)

@@ -1,6 +1,7 @@
 const User = require("../Models/User")
 const Post = require("../Models/Post")
 
+
 // @desc CREATE post
 // route POST /publish
 // @access private
@@ -13,6 +14,7 @@ const createPostHandler = async (req, res) => {
         const newPost = await new Post({
             title,
             body,
+            image: req.file ? `/images/${req.file.filename}` : null ,
             author: user_name,
             authorId: user_id
         })
