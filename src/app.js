@@ -26,7 +26,7 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 
 
 
-app.use("/api", defaultRouter)
+app.use("/", defaultRouter)
 app.use("/api/user", userRouter)
 app.use("/api/publish", postRouter)
 app.use("/api/category", categoryRouter)
