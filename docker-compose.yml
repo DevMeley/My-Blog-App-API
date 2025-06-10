@@ -19,7 +19,8 @@ services:
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@blogAppDB-mongo:27017/
+      ME_CONFIG_MONGODB_ADMINUSERNAME: DevMeley
+      ME_CONFIG_MONGODB_ADMINPASSWORD: DevMeley
+      # ME_CONFIG_MONGODB_URL: mongodb://root:example@blogAppDB-mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb+srv://DevMeley:DevMeley@blog-app-db.bxgxcz7.mongodb.net/?retryWrites=true&w=majority&appName=Blog-App-DB
       ME_CONFIG_BASICAUTH: false
