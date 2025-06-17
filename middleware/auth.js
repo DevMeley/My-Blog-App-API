@@ -16,7 +16,7 @@ const validateToken = async (req, res, next) => {
       });
     }
 
-    const payLoad = jwt.verify(token, config.jwt_secret_code);
+    const payLoad = jwt.verify(token, process.env.JWT_SECRET);
     if (!payLoad) {
       return res.status(401).json({
         message: "Invalid",
