@@ -83,7 +83,7 @@ const userLoginHandler = async (req, res) => {
             id: user.id,
             email: user.email
         }
-        const token = jwt.sign(payLoad, config.jwt_secret_code, {expiresIn: "14d"})
+        const token = jwt.sign(payLoad, process.env.JWT_SECRET, {expiresIn: "14d"})
 
         const {password, ...others} = user._doc
         res.status(200).json({
