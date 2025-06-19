@@ -14,11 +14,12 @@ const validateToken = async (req, res, next) => {
     }
     let token = req.headers.authorization.split(" ")[1];
     if (!token) {
-      return res.status(401).josn({
+      return res.status(401).json({
         message: "Invalid Token",
       });
     }
 
+    console.log("Token:", token)
     const payLoad = jwt.verify(token, process.env.JWT_SECRET);
     if (!payLoad) {
       return res.status(401).json({

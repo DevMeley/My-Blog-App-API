@@ -1,20 +1,10 @@
 const path = require("path");
 const multer = require("multer");
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, path.join(__dirname, "../images"));
-//   },
-//   filename: (req, file, cb) => {
-  //     cb(null, Date.now() + "-" + file.originalname);
-  //   },
-  // });
-  // const upload = multer({ storage: storage });
 
-// Configure Multer
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Store files in the 'uploads' folder
+    cb(null, 'public/images/');
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
