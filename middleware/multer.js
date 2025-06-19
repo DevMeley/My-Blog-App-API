@@ -28,11 +28,11 @@ const upload = multer({
   limits: { fileSize: 5 * 1024 * 1024 }, 
 });
 
-const fs = require('fs');
-const dir = 'public/images';
-if (!fs.existsSync(dir)) {
-  fs.mkdirSync(dir);
-}
+// const fs = require('fs');
+// const dir = 'public/images';
+// if (!fs.existsSync(dir)) {
+//   fs.mkdirSync(dir);
+// }
 
 
 module.exports = upload;
