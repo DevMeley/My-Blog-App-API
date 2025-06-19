@@ -22,16 +22,14 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// Initialize Multer
 const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
-  limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+  limits: { fileSize: 5 * 1024 * 1024 }, 
 });
 
-// Create uploads directory if it doesn't exist
 const fs = require('fs');
-const dir = './uploads';
+const dir = 'public/images';
 if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
