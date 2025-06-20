@@ -6,6 +6,7 @@ const postRouter = require("../Routes/postRoute")
 const categoryRouter = require("../Routes/categoryRoute")
 const path = require("path")
 const cors = require("cors")
+const fs = require('fs')
 
 connectDB()
 
@@ -18,7 +19,10 @@ app.use(cors({
     credentials: true,
 }));
 
-  
+
+if (!fs.existsSync(path.join(__dirname, 'public/images'))) {
+  fs.mkdirSync(path.join(__dirname, 'public/images'), { recursive: true });
+}
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
