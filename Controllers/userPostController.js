@@ -13,7 +13,8 @@ const createPostHandler = async (req, res) => {
     const newPost = await new Post({
       title,
       body,
-      image: req.file ? `/images/${req.file.filename}` : null,
+      // image: req.file ? `/images/${req.file.filename}` : null,
+      image: req.file.filename,
       author: user_name,
       authorId: user_id,
     });
