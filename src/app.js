@@ -22,7 +22,7 @@ app.use(cors({
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use("Public/images", express.static(path.join(__dirname, "Public"))); 
+app.use("./images", express.static(path.join(__dirname, "Public/images"))); 
 
 
 

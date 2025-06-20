@@ -9,12 +9,12 @@ const createPostHandler = async (req, res) => {
     const user_name = req.user.username;
     const user_id = req.user.id;
 
+    console.log('Uploaded file:', req.file);
     const { title, body } = req.body;
     const newPost = await new Post({
       title,
       body,
-      // image: req.file ? `/images/${req.file.filename}` : null,
-      image: req.file.filename,
+      image: req.file ? `/images/${req.file.filename}` : null,
       author: user_name,
       authorId: user_id,
     });
