@@ -1,5 +1,6 @@
 const User = require("../Models/User");
 const Post = require("../Models/Post");
+const cloudinary = require('cloudinary').v2
 
 // @desc CREATE post
 // route POST /publish
@@ -9,12 +10,16 @@ const createPostHandler = async (req, res) => {
     const user_name = req.user.username;
     const user_id = req.user.id;
 
+     const imageUpload = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'Blog App'
+    });
+
     console.log('Uploaded file:', req.file);
     const { title, body } = req.body;
     const newPost = await new Post({
       title,
       body,
-      image: req.file ? `/images/${req.file.filename}` : null,
+      image: imageUpload.secure_url,
       author: user_name,
       authorId: user_id,
     });

@@ -20,9 +20,7 @@ app.use(cors({
 }));
 
 
-// if (!fs.existsSync(path.join(__dirname, 'public/images'))) {
-//   fs.mkdirSync(path.join(__dirname, 'public/images'), { recursive: true });
-// }
+
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
