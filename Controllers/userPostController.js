@@ -22,7 +22,11 @@ const createPostHandler = async (req, res) => {
     const user_id = req.user.id;
 
      const imageUpload = await cloudinary.uploader.upload(req.file.path, {
-      folder: 'Blog App'
+      folder: 'Blog App',
+       transformation: [
+        { width: 500, height: 300, crop: 'limit' }, // Optional: resize
+        { quality: 'auto' } // Optional: auto quality
+      ]
     });
 
     console.log('Uploaded file:', req.file);
