@@ -5,7 +5,7 @@ const uploadProfilePhoto = require("../Controllers/profilePhotoHandler")
 
 const router = express.Router()
 
-router.post("/profilePhoto", upload.single('image'), validateToken, uploadProfilePhoto)
+router.post("/profilePhoto", upload.single('profilePhoto'), validateToken, uploadProfilePhoto)
 
 
 module.exports = router
