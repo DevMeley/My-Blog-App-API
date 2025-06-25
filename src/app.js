@@ -4,6 +4,7 @@ const defaultRouter = require('../Routes/defaultRoute')
 const userRouter = require("../Routes/userRoute")
 const postRouter = require("../Routes/postRoute")
 const categoryRouter = require("../Routes/categoryRoute")
+const ProfilePhotoRouter = require("../Routes/ProfilePhotoRoute")
 const path = require("path")
 const cors = require("cors")
 const fs = require('fs')
@@ -32,6 +33,7 @@ app.use("/", defaultRouter)
 app.use("/api/user", userRouter)
 app.use("/api/publish", postRouter)
 app.use("/api/category", categoryRouter)
+app.use("/api/user", ProfilePhotoRouter)
 
 
 
