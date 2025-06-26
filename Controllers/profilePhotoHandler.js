@@ -26,14 +26,15 @@ const uploadProfilePhoto = async (req, res) => {
     })
     res.status(200).json({
       success: true,
-      data: {
-        public_id: profilePhoto.public_id,
-        url: profilePhoto.secure_url,
-        width: profilePhoto.width,
-        height: profilePhoto.height,
-        format: profilePhoto.format,
-        resource_type: profilePhoto.resource_type
-      }
+      url: profilePhoto.secure_url
+      // data: {
+      //   public_id: profilePhoto.public_id,
+      //   url: profilePhoto.secure_url,
+      //   width: profilePhoto.width,
+      //   height: profilePhoto.height,
+      //   format: profilePhoto.format,
+      //   resource_type: profilePhoto.resource_type
+      // }
     })
     } catch (error) {
         res.status(500).json({message: error.message})
