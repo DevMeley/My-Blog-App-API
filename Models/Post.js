@@ -24,6 +24,11 @@ const postSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    authorProfilePics: {
+      type: mongoose.Schema.Types.String,
+      ref: "User",
+      required: true,
+    },
     category: {
       type: Array,
       require: true,

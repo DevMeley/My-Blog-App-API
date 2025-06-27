@@ -19,6 +19,7 @@ cloudinary.config({
 const createPostHandler = async (req, res) => {
   try {
     const user_name = req.user.username;
+    const profilePhoto = req.user.profilePics
     const user_id = req.user.id;
 
      const imageUpload = await cloudinary.uploader.upload(req.file.path, {
@@ -37,6 +38,7 @@ const createPostHandler = async (req, res) => {
       image: imageUpload.secure_url,
       author: user_name,
       authorId: user_id,
+      authorProfilePics: profilePhoto
     });
 
     const createdPost = await newPost.save();
