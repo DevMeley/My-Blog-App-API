@@ -17,7 +17,7 @@ const uploadProfilePhoto = async (req, res) => {
         if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
-        const profilePhoto= await cloudinary.uploader.upload(req.file.path, {
+        const profilePhoto = await cloudinary.uploader.upload(req.file.path, {
       folder: 'Blog App',
        transformation: [
         { width: 500, height: 300, crop: 'limit' }, 
@@ -27,14 +27,6 @@ const uploadProfilePhoto = async (req, res) => {
     res.status(200).json({
       success: true,
       url: profilePhoto.secure_url
-      // data: {
-      //   public_id: profilePhoto.public_id,
-      //   url: profilePhoto.secure_url,
-      //   width: profilePhoto.width,
-      //   height: profilePhoto.height,
-      //   format: profilePhoto.format,
-      //   resource_type: profilePhoto.resource_type
-      // }
     })
     } catch (error) {
         res.status(500).json({message: error.message})
