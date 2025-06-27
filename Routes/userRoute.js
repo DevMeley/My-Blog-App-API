@@ -8,7 +8,7 @@ const router = express.Router()
 
 router.post("/auth/register", registerUserHandler)
 router.post("/auth/login", userLoginHandler)
-router.put("/settings/uploadProfilePics", upload.single("profilePics"), validateToken, updateProfilePics)
+router.put("/settings/uploadProfilePics", upload.single("profilePhoto"), validateToken, updateProfilePics)
 router.put("/settings/editUsername", validateToken, updateUsernameHadler)
 router.delete("/account/delete", validateToken, deleteUserHandler)
 router.get("/settings/account", validateToken, getUserHandler)
